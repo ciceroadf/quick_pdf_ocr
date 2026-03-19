@@ -1,0 +1,5 @@
+{
+  "name": "quick_pdf",
+  "version": "1.0.0",
+  "description": "Extensao Chrome para OCR local em PDF com preservacao de outline/bookmarks."
+}

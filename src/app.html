@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quick PDF OCR</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Quick PDF OCR</p>
+        <h1>QUICK OCR PDF</h1>
+        <p class="hero-copy">
+          Arraste um PDF escaneado, rode OCR no navegador e baixe uma nova versao "limpa",
+          reconstruida como PDF textual pesquisavel. Se o PDF original tiver bookmarks,
+          a extensao tenta reconstruir esse outline no arquivo final.
+        </p>
+      </header>
+
+      <main class="workspace">
+        <section class="panel intake-panel">
+          <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-controls="file-input">
+            <input id="file-input" type="file" accept="application/pdf" hidden />
+            <p class="dropzone-title">Solte um PDF aqui</p>
+            <p class="dropzone-copy">ou clique para escolher um arquivo</p>
+            <p class="dropzone-meta" id="file-meta">Nenhum arquivo selecionado.</p>
+          </div>
+
+          <div class="controls-grid">
+            <label class="field">
+              <span>Idioma do OCR</span>
+              <select id="language-select">
+                <option value="por+eng">Portugues + Ingles</option>
+                <option value="por">Portugues</option>
+                <option value="eng">Ingles</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Escala de renderizacao</span>
+              <select id="scale-select">
+                <option value="1.5">1.5x | mais leve</option>
+                <option value="2" selected>2x | equilibrado</option>
+                <option value="3">3x | mais preciso</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Paralelismo</span>
+              <select id="parallelism-select">
+                <option value="1">1 pagina</option>
+                <option value="2" selected>2 paginas</option>
+                <option value="3">3 paginas</option>
+              </select>
+            </label>
+          </div>
+
+          <button id="process-button" class="primary-button" disabled>
+            Gerar PDF OCR
+          </button>
+
+          <p class="footnote">
+            O arquivo final agora sai em modo texto puro. Quando uma pagina tiver OCR fraco,
+            a extensao ainda gera uma pagina textual, mas com pouco ou nenhum conteudo util.
+          </p>
+        </section>
+
+        <section class="panel status-panel">
+          <div class="status-head">
+            <p class="status-kicker">Andamento</p>
+            <p class="status-summary" id="status-summary">Aguardando um PDF.</p>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+
+          <div class="stats-row">
+            <div>
+              <p class="stat-label">Etapa</p>
+              <p class="stat-value" id="status-step">Parado</p>
+            </div>
+            <div>
+              <p class="stat-label">Progresso</p>
+              <p class="stat-value" id="status-percent">0%</p>
+            </div>
+            <div>
+              <p class="stat-label">Arquivo</p>
+              <p class="stat-value" id="status-file">-</p>
+            </div>
+          </div>
+
+          <div class="log-card">
+            <p class="log-title">Ultimas atualizacoes</p>
+            <ul id="status-log" class="status-log">
+              <li>Pronto para processar um PDF.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer class="page-footer">
+        <p class="footer-copy">Made by Cicero Alves Duarte Filho</p>
+        <a
+          class="footer-link"
+          href="https://github.com/ciceroadf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          github.com/ciceroadf
+        </a>
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

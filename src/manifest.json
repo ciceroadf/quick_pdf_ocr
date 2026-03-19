@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Quick PDF OCR",
+  "version": "1.0.0",
+  "description": "Faz OCR local em PDFs, gera um PDF pesquisavel e tenta preservar o outline/bookmarks do original.",
+  "minimum_chrome_version": "120",
+  "permissions": ["downloads"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "action": {
+    "default_title": "Quick PDF OCR"
+  }
+}
