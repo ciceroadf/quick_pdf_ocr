@@ -4,6 +4,12 @@
   "version": "1.0.0",
   "description": "Faz OCR local em PDFs, gera um PDF pesquisavel e tenta preservar o outline/bookmarks do original.",
   "minimum_chrome_version": "120",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
   "permissions": ["downloads"],
   "background": {
     "service_worker": "background.js",
@@ -13,6 +19,11 @@
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   },
   "action": {
-    "default_title": "Quick PDF OCR"
+    "default_title": "Quick PDF OCR",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png"
+    }
   }
 }
